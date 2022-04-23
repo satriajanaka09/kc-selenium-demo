@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="0" passed="0" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-04-24T00:52:50 ICT" name="newpackage" finished-at="2022-04-24T00:52:50 ICT" duration-ms="8">
+    <groups>
+    </groups>
+    <test started-at="2022-04-24T00:52:50 ICT" name="kctest" finished-at="2022-04-24T00:52:50 ICT" duration-ms="8">
+    </test> <!-- kctest -->
+  </suite> <!-- newpackage -->
+</testng-results>

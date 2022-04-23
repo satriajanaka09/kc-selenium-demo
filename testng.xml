@@ -1,0 +1,7 @@
+<suite name="newpackage">
+	<test name="kctest">
+		<classes>
+			<class name="newpackage.LoginTest" />
+		</classes>
+	</test>
+</suite>

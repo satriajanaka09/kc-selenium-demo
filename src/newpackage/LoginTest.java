@@ -1,15 +1,25 @@
 package newpackage;
 
+import java.io.File;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
 
 public class LoginTest {
 	
+	static ExtentReports extent;
+	static ExtentTest test;
+	
 	public static void main(String[] args) {
 		
+		extent = new ExtentReports(System.getProperty("user.dir")+"test-output/TestReport.html", true);
 		
 		System.setProperty("webdriver.chrome.driver", "C:\\\\Users\\\\satri\\\\Downloads\\\\chromedriver_win32 (1)\\\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
@@ -31,6 +41,9 @@ public class LoginTest {
 		
 		WebElement loginButton = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div/div/div[2]/div/form/button"));
 		loginButton.click();
+		
+		test = extent.startTest("passTest");
+		test.log(LogStatus.PASS, "Test case is pass");
 
 	}
 
