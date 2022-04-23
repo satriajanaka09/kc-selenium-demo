@@ -55,6 +55,20 @@ public class LoginTest {
 		picName.click();
 		picName.sendKeys("Lorem Ipsum");
 		
+		WebElement gender = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/section/div[2]/div[2]/div/div[2]/div/div/label[1]/input"));
+		gender.click();
+		
+		WebElement position = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/section/div[2]/div[3]/div/div[2]/div/div/input"));
+		position.click();
+		position.sendKeys("Lorem Ipsum");
+		
+		WebElement idNumber = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/section/div[2]/div[4]/div/div[2]/div/div/input"));
+		idNumber.click();
+		idNumber.sendKeys("1234567890123456");
+		
+		WebElement idUpload = driver.findElement(By.xpath("//*[@id=\"upload-cid_file\"]"));
+		idUpload.sendKeys("C:\\Users\\satri\\OneDrive\\Documents\\works\\ktp-example\\identity_card_example.b686f703.jpg");
+		
 		test = extent.startTest("passTest");
 		test.log(LogStatus.PASS, "Test case is pass");
 
