@@ -55,9 +55,6 @@ public class LoginTest {
 		picName.click();
 		picName.sendKeys("Lorem Ipsum");
 		
-		WebElement gender = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/section/div[2]/div[2]/div/div[2]/div/div/label[1]/input"));
-		gender.click();
-		
 		test = extent.startTest("passTest");
 		test.log(LogStatus.PASS, "Test case is pass");
 
