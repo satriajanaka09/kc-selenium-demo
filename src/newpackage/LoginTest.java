@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.relevantcodes.extentreports.ExtentReports;
@@ -68,6 +69,37 @@ public class LoginTest {
 		
 		WebElement idUpload = driver.findElement(By.xpath("//*[@id=\"upload-cid_file\"]"));
 		idUpload.sendKeys("C:\\Users\\satri\\OneDrive\\Documents\\works\\ktp-example\\identity_card_example.b686f703.jpg");
+		
+		WebElement selfieUpload = driver.findElement(By.xpath("//*[@id=\"upload-selfie_file\"]"));
+		selfieUpload.sendKeys("C:\\Users\\satri\\OneDrive\\Documents\\works\\ktp-example\\selfie_example.b686f703.jpg");
+		
+		WebElement bornPlace = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/section/div[2]/div[8]/div/div[2]/div/div/input"));
+		bornPlace.sendKeys("Lorem inpsum");
+		
+		WebElement bornDate = driver.findElement(By.xpath("//*[@id=\"tgl_lahir\"]"));
+		bornDate.sendKeys("01-01-1989");
+		
+		Select drpState = new Select(driver.findElement(By.xpath("//*[@id=\"provinsi\"]")));
+		drpState.selectByVisibleText("Banten");
+		
+		wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(By.xpath("//*[@id=\"kota\"]"), By.tagName("option")));
+		
+		Select drpCity = new Select(driver.findElement(By.xpath("//*[@id=\"kota\"]")));
+		drpCity.selectByVisibleText("Tangerang Selatan Kota");
+		
+		Select drpKecamatan = new Select(driver.findElement(By.xpath("//*[@id=\"kecamatan\"]")));
+		drpKecamatan.selectByVisibleText("Pamulang");
+		
+		Select drpKelurahan = new Select(driver.findElement(By.xpath("//*[@id=\"kelurahan\"]")));
+		drpKelurahan.selectByVisibleText("Pondok Benda");
+		
+		WebElement address = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/section/div[2]/div[16]/div/div[2]/div/textarea"));
+		address.click();
+		address.sendKeys("Jl Makmur Jaya RT 002 RW 005");
+		
+		WebElement nextButton = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/section/div[2]/div[17]/button"));
+		nextButton.click();
 		
 		test = extent.startTest("passTest");
 		test.log(LogStatus.PASS, "Test case is pass");
