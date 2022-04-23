@@ -1,11 +1,13 @@
 package newpackage;
 
-import java.io.File;
+import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -41,6 +43,20 @@ public class LoginTest {
 		
 		WebElement loginButton = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div/div/div[2]/div/form/button"));
 		loginButton.click();
+		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));		
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"root\"]/div/aside/div/div[4]/div/div/nav/ul/li[2]/a/p")));
+		
+		driver.navigate().to("https://borrower-stg.klikcair.com/lengkapi-profil");
+		
+		wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		wait.until(ExpectedConditions.elementToBeClickable(By.name("nama_pic")));
+		WebElement picName = driver.findElement(By.name("nama_pic"));
+		picName.click();
+		picName.sendKeys("Lorem Ipsum");
+		
+		WebElement gender = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/section/div[2]/div[2]/div/div[2]/div/div/label[1]/input"));
+		gender.click();
 		
 		test = extent.startTest("passTest");
 		test.log(LogStatus.PASS, "Test case is pass");
